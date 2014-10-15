@@ -136,6 +136,6 @@ end
 %plot spectrum
 if(ptype>0)
     disp('finished...plotting spectrum');
-    plotspec(SMout,ptype);
+    diwasp_plotspec(SMout,ptype);
     T=['Directional spectrum estimated using ' blanks(1) EP.method ' method'];title(T);
 end
