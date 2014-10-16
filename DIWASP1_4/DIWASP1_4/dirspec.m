@@ -1,4 +1,4 @@
-function [SMout,EP]=dirspec(ID,SM,EP,varargin)
+function [SMout,EP,fig]=dirspec(ID,SM,EP,varargin)
 
 %DIWASP V1.4 function
 %dirspec: main spectral estimation routine
@@ -136,6 +136,6 @@ end
 %plot spectrum
 if(ptype>0)
     disp('finished...plotting spectrum');
-    diwasp_plotspec(SMout,ptype);
+    fig = diwasp_plotspec(SMout,ptype);
     T=['Directional spectrum estimated using ' blanks(1) EP.method ' method'];title(T);
 end
