@@ -1,4 +1,4 @@
-function diwasp_plotspec(SM,ptype);
+function fig = diwasp_plotspec(SM,ptype);
 
 %DIWASP V1.4 function
 %plotspec: plots the spectral matrix in 3D or polar form
