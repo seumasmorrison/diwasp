@@ -1,9 +1,9 @@
 function fig = diwasp_plotspec(SM,ptype);
 
 %DIWASP V1.4 function
-%plotspec: plots the spectral matrix in 3D or polar form
+%diwasp_plotspec: plots the spectral matrix in 3D or polar form
 %
-%plotspec(SM,ptype)
+%diwasp_plotspec(SM,ptype)
 %
 %Inputs:
 % SM   		A spectral matrix structure
@@ -24,8 +24,12 @@ function fig = diwasp_plotspec(SM,ptype);
 %"help data_structures" for information on the DIWASP data structures
 
 %Copyright (C) 2002 Coastal Oceanography Group, CWR, UWA, Perth
+fig=figure('Visible','Off');
 
-fig=figure;
+if isfield(SM,'visible')
+    fig=figure('Visible',SM.visible);
+end
+
 
 SM=check_data(SM,2);if isempty(SM) return;end;
 [SM,sfac]=spectobasis(SM);%Convert to basis matrix
@@ -102,7 +106,9 @@ elseif(ptype==2|ptype==4)
 	xlabel('m^2s / deg');
    hold off;
 end
-
+if isfield(SM,'file_path')
+    title(SM.file_path)
+end
 set(gca,'Color','none');
 
 
